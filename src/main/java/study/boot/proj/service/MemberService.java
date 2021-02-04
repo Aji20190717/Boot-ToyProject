@@ -9,7 +9,8 @@ import study.boot.proj.dto.Member;
 
 @RequiredArgsConstructor
 @Service
-public class MemberService implements UserDetailsService {
+public class MemberService implements UserDetailsService, Register {
+
     private final MemberRefo userRepository;
 
     /**
@@ -24,4 +25,41 @@ public class MemberService implements UserDetailsService {
         return userRepository.findByEmail(email)
                 .orElseThrow(() -> new UsernameNotFoundException((email)));
     }
+
+    // 회원가입
+    @Override
+    public int InsertMemberInfo(Member member) {
+        return 0;
+    }
+
+    // 회원 정보 조회
+    @Override
+    public Member SearchMemberInfo(Member member) {
+        return null;
+    }
+
+    // 회원 정보 수정
+    @Override
+    public int UpdateMemberInfo(Member member) {
+        return 0;
+    }
+
+    // 회원 탈퇴 -> update
+    @Override
+    public int DeleteMemberInfo(int seq) {
+        return 0;
+    }
+
+    // email 중복 확인
+    @Override
+    public String SearchEmail(String email) {
+        return null;
+    }
+
+    // 탈퇴 회원 여부 확인
+    @Override
+    public String SearchWithdrawal(int seq) {
+        return null;
+    }
+
 }

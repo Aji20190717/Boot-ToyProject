@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RegisterPage</title>
+</head>
+<body>
+
+    <div>
+        <form action="/registerRes" method="post">
+            <span>ID : </span><input type="text" name="id" /><br/>
+            <span>PW : </span><input type="password" name="password" /><br/>
+            <span>PWChk : </span><input type="password" id="check" />
+                        <input type="button" onclick="checkPw();" /><br/>
+            <span id="alert" ></span>
+            <span>NICKNAME : </span><input type="text" name="nickname" /><br/>
+            <input type="submit" value="register">
+        </form>
+    </div>
+
+    <script type="text/javascript" >
+        function checkPw() {
+            let pw = document.getElementsByName("password").values();
+            let chk = document.getElementById("check").values();
+
+            if(pw != chk) {
+                document.getElementById("alert").innerText = "비밀번호가 다릅니다.";
+                chk.focus();
+            } else {
+                document.getElementById("alert").innerText = "";
+            }
+        }
+    </script>
+
+</body>
+</html>
