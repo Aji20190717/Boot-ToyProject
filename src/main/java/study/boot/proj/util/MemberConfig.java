@@ -10,7 +10,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import study.boot.proj.dto.Member;
 import study.boot.proj.service.MemberService;
 
 @RequiredArgsConstructor
@@ -54,3 +53,15 @@ public class MemberConfig extends WebSecurityConfigurerAdapter { // 2
         auth.userDetailsService(userService).passwordEncoder(passwordEncoder()); // 해당 서비스(userService)에서는 UserDetailsService를 implements해서 loadUserByUsername() 구현해야함 (서비스 참고)
     }
 }
+/*
+    1. Spring Security 활성화
+    2. Spring Security 설정파일로서의 역할을 하기 위해 상속해야 하는 클래스
+    3. 후에 사용할 유저 정보를 가져올 클래스 :: 프로그래머가 만드는 것
+    4. 비밀번호를 암호화할 때 사용할 인코더를 미리 빈으로 등록해놓는 과정
+    5. WebSecurityConfigurerAdapter 클래스를 상속받으면 사용할 수 있는 메소드. 인증을 무시할 경로들을 설정할 수 있음.
+    6. WebSecurityConfigurerAdapter 클래스를 상속받으면 사용할 수 있는 메소드. http 관련 인증 설정이 가능함.
+    7. 접근에 대한 인증 설정. 어떤 경로에 어떤 권한이 접근할 수 있는지 세부적으로 설정할 수 있다.
+    8. 로그인에 관한 설정.
+    9. 로그아웃에 관한 설정
+    10. 로그인할 때 필요한 정보를 가져오는 곳. 유저 정보를 가져올 클래스를 설정하고 패스워드 인코더를 설정한다.
+*/

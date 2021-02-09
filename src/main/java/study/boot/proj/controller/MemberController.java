@@ -31,9 +31,9 @@ public class MemberController {
 
     @PostMapping("/registerRes")
     public String registerRes(Member member, Model model) {
-        int res = biz.RegisterInsert(member);
+        int res = biz.InsertMemberInfo(member);
         if(res > 0) {
-            return null;
+            return "main";
         }
         model.addAttribute("msg", "회원가입에 실패하였습니다.");
         return "error";
